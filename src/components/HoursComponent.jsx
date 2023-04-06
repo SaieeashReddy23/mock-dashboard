@@ -14,7 +14,31 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 export const options = {
   responsive: true,
-  plugins: {},
+
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      beginAtZero: true,
+      ticks: {
+        display: false,
+      },
+      border: {
+        display: false,
+      },
+      grid: {
+        display: false,
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
 }
 
 const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -38,6 +62,7 @@ export const data = {
 const HoursComponent = () => {
   return (
     <div className="bar-container">
+      <h4>Total spent hours</h4>
       <Bar options={options} data={data} className="bar-component" />
     </div>
   )
